@@ -1,0 +1,18 @@
+<div class="votacion-container">
+    <h2>Selecciona tu Candidato</h2>
+    <form (ngSubmit)="registrarVoto()">
+      <div *ngFor="let partido of partidos">
+        <h3>{{ partido.nombre }}</h3>
+        <div *ngFor="let candidato of partido.candidatos">
+          <input 
+            type="radio" 
+            [value]="candidato.nombre" 
+            [(ngModel)]="votoSeleccionado" 
+            name="voto" 
+            required />
+          <label>{{ candidato.nombre }}</label>
+        </div>
+      </div>
+      <button type="submit">Registrar Voto</button>
+    </form>
+  </div>
